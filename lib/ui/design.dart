@@ -19,6 +19,12 @@ class AppImages {
   static const String chapterDetailsBackground =
       "assets/images/chaoter_details_background.png";
   static const String hadethItemBackground = "assets/images/hadeth_item_bg.png";
+  static const String islam = "assets/images/Islami.png";
+  static const String basmala = "assets/images/basmala.png";
+  static const String masged = "assets/images/masged.png";
+  static const String doai = "assets/images/doai.png";
+  static const String moshaf = "assets/images/moshaf.png";
+  static const String sound = "assets/images/sound.png";
 }
 
 class AppThemes {

@@ -1,8 +1,7 @@
-enum AppRoutes {
-  HomeScreen("home"),
-  ChapterDetails("chapter_details");
-
-  final String route;
-
-  const AppRoutes(this.route);
+class Routes {
+  static const String homeScreenRoutes = "home";
+  static const String chapterDetails = "chapterRoute";
+  static const String hadethRoute = "/hadethRoute";
+  static const String introScreen = "/introScreen";
 }
+

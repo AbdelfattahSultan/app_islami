@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c16/ui/IntroScreen/IntroScreen.dart';
 import 'package:islami_c16/ui/chapter_details/ChapterDetails.dart';
 import 'package:islami_c16/ui/common/MostRecentSharedPrefences.dart';
 import 'package:islami_c16/ui/design.dart';
@@ -30,10 +31,11 @@ class MyApp extends StatelessWidget {
       darkTheme: AppThemes.darkTheme,
       themeMode: ThemeMode.dark,
       routes: {
-        AppRoutes.HomeScreen.route: (context) => HomeScreen(),
-        AppRoutes.ChapterDetails.route: (context) => ChapterDetails(),
+        Routes.homeScreenRoutes: (context) => HomeScreen(),
+        Routes.chapterDetails: (context) => ChapterDetails(),
+        Routes.introScreen: (context) => Introscreen(),
       },
-      initialRoute: AppRoutes.HomeScreen.route,
+      initialRoute: Routes.introScreen,
     );
   }
 }
