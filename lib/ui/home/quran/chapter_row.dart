@@ -15,7 +15,7 @@ class ChapterRow extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          AppRoutes.ChapterDetails.route,
+          Routes.chapterDetails,
           arguments: chapter,
         );
       },
