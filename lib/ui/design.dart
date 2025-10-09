@@ -25,6 +25,11 @@ class AppImages {
   static const String doai = "assets/images/doai.png";
   static const String moshaf = "assets/images/moshaf.png";
   static const String sound = "assets/images/sound.png";
+
+  static const String sebhaBody = "assets/images/Sebha_Body.png";
+  static const String sebhaHead = "assets/images/sebha_head.png";
+
+
 }
 
 class AppThemes {
