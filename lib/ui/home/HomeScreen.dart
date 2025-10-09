@@ -70,20 +70,20 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
               backgroundColor: AppColors.gold,
               icon: Image(
-                image: Svg(AppImages.ic_radio),
-                width: 24,
-                height: 24,
-              ),
-              label: "Radio",
-            ),
-            BottomNavigationBarItem(
-              backgroundColor: AppColors.gold,
-              icon: Image(
                 image: Svg(AppImages.ic_tasbeh),
                 width: 24,
                 height: 24,
               ),
               label: "Mention",
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: AppColors.gold,
+              icon: Image(
+                image: Svg(AppImages.ic_radio),
+                width: 24,
+                height: 24,
+              ),
+              label: "Radio",
             ),
             BottomNavigationBarItem(
               backgroundColor: AppColors.gold,
@@ -103,8 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     QuranContent(),
     HadethContent(),
-    RadioContent(),
     SebhaContent(),
+    RadioContent(),
     Prayercontent(),
   ];
 }
