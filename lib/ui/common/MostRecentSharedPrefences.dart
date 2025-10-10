@@ -45,4 +45,12 @@ class MostRecentSharedPreferences {
         .map((chapterIndexString) => int.parse(chapterIndexString))
         .toList();
   }
+
+  Future<void> checkOnboarding() async{
+  await  _sharedPreferences.setBool("onboarding", true);
+  }
+
+  bool getONboarding(){
+    return _sharedPreferences.getBool("onboarding") ?? true;
+  }
 }

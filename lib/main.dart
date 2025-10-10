@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami_c16/ui/IntroScreen/IntroScreen.dart';
+import 'package:islami_c16/ui/IntroScreen/Onboarding.dart';
+
 import 'package:islami_c16/ui/chapter_details/ChapterDetails.dart';
 import 'package:islami_c16/ui/common/MostRecentSharedPrefences.dart';
 import 'package:islami_c16/ui/design.dart';
@@ -10,17 +11,20 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await MostRecentSharedPreferences
-      .init(); // wait until shared prefences being initialized
+  await MostRecentSharedPreferences.init(); // wait until shared prefences being initialized
+final hasSeenOnboarding =
+      MostRecentSharedPreferences.getInstance().getONboarding();
   runApp(
-      ChangeNotifierProvider(
-          create: (context) => MostRecentProvider(),
-          child: MyApp())
+    ChangeNotifierProvider(
+      create: (context) => MostRecentProvider(),
+      child: MyApp(hasSeenOnboarding: hasSeenOnboarding,),
+    ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool hasSeenOnboarding;
+  const MyApp({super.key, required this.hasSeenOnboarding});
 
   // This widget is the root of your application.
   @override
@@ -33,9 +37,11 @@ class MyApp extends StatelessWidget {
       routes: {
         Routes.homeScreenRoutes: (context) => HomeScreen(),
         Routes.chapterDetails: (context) => ChapterDetails(),
-        Routes.introScreen: (context) => Introscreen(),
+        Routes.introScreen: (context) => Onboarding(),
       },
-      initialRoute: Routes.introScreen,
+      initialRoute: hasSeenOnboarding
+          ? Routes.homeScreenRoutes
+          : Routes.introScreen,
     );
   }
 }
