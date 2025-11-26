@@ -68,7 +68,9 @@ class _ChapterDetailsState extends State<ChapterDetails> {
 
   void saveChapterToLastVisited(Chapter chapter) {
     MostRecentProvider provider = Provider.of<MostRecentProvider>(
-        context, listen: false);
+      context,
+      listen: false,
+    );
     provider.saveChapter(chapter);
   }
 

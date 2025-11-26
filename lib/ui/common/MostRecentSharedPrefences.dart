@@ -46,11 +46,11 @@ class MostRecentSharedPreferences {
         .toList();
   }
 
-  Future<void> checkOnboarding() async{
-  await  _sharedPreferences.setBool("onboarding", true);
+  Future<void> checkOnboarding() async {
+    await _sharedPreferences.setBool("onboarding", true);
   }
 
-  bool getONboarding(){
+  bool getONboarding() {
     return _sharedPreferences.getBool("onboarding") ?? true;
   }
 }

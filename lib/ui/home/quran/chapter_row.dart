@@ -4,6 +4,7 @@ import 'package:islami_c16/ui/Chapter.dart';
 import 'package:islami_c16/ui/design.dart';
 import 'package:islami_c16/ui/routes.dart';
 
+// ignore: must_be_immutable
 class ChapterRow extends StatelessWidget {
   Chapter chapter;
 
@@ -13,11 +14,7 @@ class ChapterRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          Routes.chapterDetails,
-          arguments: chapter,
-        );
+        Navigator.pushNamed(context, Routes.chapterDetails, arguments: chapter);
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 12),

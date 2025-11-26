@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const Color gold = Color(0xFFE2BE7F);
   static const Color dark = Color(0xff202020);
-
 }
 
 class AppImages {
@@ -30,8 +29,6 @@ class AppImages {
 
   static const String sebhaBody = "assets/images/Sebha_Body.png";
   static const String sebhaHead = "assets/images/sebha_head.png";
-
-
 }
 
 class AppThemes {

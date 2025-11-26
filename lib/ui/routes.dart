@@ -4,4 +4,3 @@ class Routes {
   static const String hadethRoute = "/hadethRoute";
   static const String introScreen = "/introScreen";
 }
-
