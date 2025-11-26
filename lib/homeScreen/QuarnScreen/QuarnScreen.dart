@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:islam_app/DataClassChapter/Chapter.dart';
+import 'package:islam_app/common/MostRecentProvider.dart';
 import 'package:islam_app/core/AppColors.dart';
 import 'package:islam_app/core/AppImages.dart';
 import 'package:islam_app/homeScreen/QuarnScreen/QuarnChapterRow.dart';
@@ -14,6 +15,20 @@ class QuarnScreen extends StatefulWidget {
 }
 
 class _QuarnScreenState extends State<QuarnScreen> {
+
+  List<Chapter> visitedChapters =[];
+
+  @override
+  void initState() {
+    var savedChapters = MostRecentProvider.getInstance().getMostRecentChapter();
+
+    savedChapters.forEach((chapterIndex) {
+      var chapter = Chapter.chapters[chapterIndex];
+      visitedChapters.add(chapter);
+    });
+    super.initState();
+  }
+
   final List<Chapter> chaptersList = Chapter.qetQuranChapter();
 
   List<Chapter> filterChapters = [];
@@ -66,17 +81,32 @@ class _QuarnScreenState extends State<QuarnScreen> {
           ),
         ),
         SizedBox(height: 10),
-        SizedBox(
-          height: 150,
-          child: ListView.separated(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            itemBuilder: (context, index) {
-              return SuaraCard(chapter: chaptersList[index]);
-            },
-            separatorBuilder: (context, index) => SizedBox(width: 10),
-            itemCount: chaptersList.length,
-            scrollDirection: Axis.horizontal,
-          ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+              child: Text(
+                "Most Recently ",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall
+                    ?.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: 150,
+              child: ListView.separated(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                itemBuilder: (context, index) {
+                  return SuaraCard(chapter: visitedChapters[index]);
+                },
+                separatorBuilder: (context, index) => SizedBox(width: 10),
+                itemCount: visitedChapters.length,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 10),
         Expanded(

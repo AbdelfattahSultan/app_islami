@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:islam_app/ChapterDetails/ChapterDetails.dart';
 import 'package:islam_app/IntroScreen/IntroScreen.dart';
+import 'package:islam_app/common/MostRecentProvider.dart';
 import 'package:islam_app/core/DarkTheme.dart';
 import 'package:islam_app/core/Routes.dart';
 import 'package:islam_app/homeScreen/HadethScreen/HadethDetails.dart';
 import 'package:islam_app/homeScreen/HomeScreen.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await MostRecentProvider.init();
   runApp(const MyApp());
 }
 

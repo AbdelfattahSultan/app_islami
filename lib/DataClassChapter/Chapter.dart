@@ -355,6 +355,8 @@ class Chapter {
 
   Chapter(this.arabicName, this.englishName, this.AyaNum, this.chapterIndex);
 
+  static List<Chapter> chapters = qetQuranChapter();
+
   static List<Chapter> qetQuranChapter() {
     List<Chapter> chapters = List.generate(
       114,

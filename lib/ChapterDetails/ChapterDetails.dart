@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:islam_app/ChapterDetails/VersesIteam.dart';
 import 'package:islam_app/DataClassChapter/Chapter.dart';
 import 'package:islam_app/common/AppBackground.dart';
+import 'package:islam_app/common/MostRecentProvider.dart';
 
 class Chapterdetails extends StatefulWidget {
   const Chapterdetails({super.key});
@@ -17,6 +18,9 @@ class _ChapterdetailsState extends State<Chapterdetails> {
   @override
   Widget build(BuildContext context) {
     Chapter chapter = ModalRoute.of(context)?.settings.arguments as Chapter;
+
+    saveChapterToLastView(chapter);
+
     loadVerses(chapter.chapterIndex);
 
     return AppBackground(
@@ -42,6 +46,10 @@ class _ChapterdetailsState extends State<Chapterdetails> {
         ),
       ),
     );
+  }
+
+  void saveChapterToLastView(Chapter chapter) {
+    MostRecentProvider.getInstance().saveChapter(chapter.chapterIndex);
   }
 
   Future<void> loadVerses(int chapterIndex) async {

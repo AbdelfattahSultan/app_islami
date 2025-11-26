@@ -1,64 +1,85 @@
 import 'package:flutter/material.dart';
-import 'package:islam_app/DataClassChapter/Chapter.dart';
-import 'package:islam_app/core/AppColors.dart';
-import 'package:islam_app/core/AppImages.dart';
+import 'package:islami_c16/ui/design.dart';
+import 'package:islami_c16/ui/providers/MostRecentProvider.dart';
+import 'package:provider/provider.dart';
 
-class SuaraCard extends StatelessWidget {
-  Chapter chapter;
+class MostRecentSlider extends StatefulWidget {
+  const MostRecentSlider({super.key});
 
-  SuaraCard({super.key, required this.chapter});
+  @override
+  State<MostRecentSlider> createState() => _MostRecentSliderState();
+}
+
+class _MostRecentSliderState extends State<MostRecentSlider> {
+  // List<Chapter> visitedChapters = [];
+
+  @override
+  void initState() {
+    // call before build
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 17),
-      width: 283,
-      height: 120,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: AppColors.gold,
-      ),
-      child: Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                chapter.englishName,
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyMedium?.copyWith(color: AppColors.black),
-              ),
-              Text(
-                chapter.arabicName,
-                style: Theme.of(
-                  context,
-                ).textTheme.bodyMedium?.copyWith(color: AppColors.black),
-              ),
-              Text(
-                "${chapter.AyaNum} Verses",
-                style: Theme.of(
-                  context,
-                ).textTheme.titleSmall?.copyWith(color: AppColors.black),
-              ),
-            ],
-          ),
-          Expanded(
-            child: Column(
-              children: [
-                Image.asset(
-                  AppImages.reading,
-                  fit: BoxFit.cover,
-                  width: 151,
-                  height: 136,
-                  color: AppColors.black,
+    MostRecentProvider provider = Provider.of<MostRecentProvider>(context);
+    var visitedChapters = provider.getMostRecentChapters();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 12),
+        Text('Most Recent'),
+        SizedBox(height: 12),
+        SizedBox(
+          height: 200,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return Container(
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Theme.of(context).colorScheme.primary,
                 ),
-              ],
-            ),
+                height: 150,
+                width: MediaQuery.of(context).size.width * .7,
+                child: Stack(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(child: Container()),
+                        Expanded(
+                          child: Image.asset(
+                            AppImages.imageMostRecent,
+                            height: double.infinity,
+                            width: double.infinity,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          visitedChapters[index].arabicName,
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyLarge?.copyWith(color: Colors.black),
+                        ),
+                        Text('text1'),
+                        Text('text1'),
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            },
+            separatorBuilder: (context, index) =>
+                SizedBox(width: 24, height: 1),
+            itemCount: visitedChapters.length,
           ),
-        ],
-      ),
+        ),
+        SizedBox(height: 12),
+      ],
     );
   }
 }
