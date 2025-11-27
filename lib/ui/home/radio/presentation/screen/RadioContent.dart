@@ -14,8 +14,6 @@ class RadioContent extends StatefulWidget {
 }
 
 class _RadioContentState extends State<RadioContent> {
-
-
   ValueNotifier<String> selectedTap = ValueNotifier("radio");
   @override
   Widget build(BuildContext context) {
@@ -30,9 +28,7 @@ class _RadioContentState extends State<RadioContent> {
               child: ValueListenableBuilder(
                 valueListenable: selectedTap,
                 builder: (context, value, child) {
-                  return value == "radio"
-                      ? RadioView()
-                      : Container(decoration: BoxDecoration(color: Colors.red));
+                  return value == "radio" ? RadioView() : RadioView();
                 },
               ),
             ),

@@ -3,7 +3,7 @@ import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:islami_c16/ui/common/AppScreenWrapper.dart';
 import 'package:islami_c16/ui/design.dart';
 import 'package:islami_c16/ui/home/hadeth/HadethContent.dart';
-import 'package:islami_c16/ui/home/prayer/PrayerContent.dart';
+import 'package:islami_c16/ui/home/time/presentation/time_tap.dart';
 import 'package:islami_c16/ui/home/quran/QuranContent.dart';
 import 'package:islami_c16/ui/home/radio/presentation/screen/RadioContent.dart';
 import 'package:islami_c16/ui/home/sebha/SebhaContent.dart';
@@ -105,6 +105,6 @@ class _HomeScreenState extends State<HomeScreen> {
     HadethContent(),
     SebhaContent(),
     RadioContent(),
-    Prayercontent(),
+    TimeTap(),
   ];
 }
