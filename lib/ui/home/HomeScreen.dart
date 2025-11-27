@@ -5,7 +5,7 @@ import 'package:islami_c16/ui/design.dart';
 import 'package:islami_c16/ui/home/hadeth/HadethContent.dart';
 import 'package:islami_c16/ui/home/prayer/PrayerContent.dart';
 import 'package:islami_c16/ui/home/quran/QuranContent.dart';
-import 'package:islami_c16/ui/home/radio/RadioContent.dart';
+import 'package:islami_c16/ui/home/radio/presentation/screen/RadioContent.dart';
 import 'package:islami_c16/ui/home/sebha/SebhaContent.dart';
 
 class HomeScreen extends StatefulWidget {

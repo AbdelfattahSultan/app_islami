@@ -40,6 +40,10 @@ dependencies:
   provider: ^6.1.5+1
   flutter_native_splash: ^2.4.6
   smooth_page_indicator: ^1.2.1
+  dio: ^5.9.0
+  flutter_bloc: ^9.1.1
+  flutter_svg: ^2.2.3
+  audioplayers: ^6.5.1
 
 
 dev_dependencies:

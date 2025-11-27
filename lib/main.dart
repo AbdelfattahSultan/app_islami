@@ -12,12 +12,12 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await MostRecentSharedPreferences.init(); // wait until shared prefences being initialized
-final hasSeenOnboarding =
-      MostRecentSharedPreferences.getInstance().getONboarding();
+  final hasSeenOnboarding = MostRecentSharedPreferences.getInstance()
+      .getONboarding();
   runApp(
     ChangeNotifierProvider(
       create: (context) => MostRecentProvider(),
-      child: MyApp(hasSeenOnboarding: hasSeenOnboarding,),
+      child: MyApp(hasSeenOnboarding: hasSeenOnboarding),
     ),
   );
 }
