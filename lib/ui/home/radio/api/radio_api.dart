@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:islami_c16/ui/home/radio/api/radio_respone/radio_response.dart';
 
 class RadioApi {
-  final  _dio = Dio();
+  final _dio = Dio();
   RadioApi() {
     _dio;
   }

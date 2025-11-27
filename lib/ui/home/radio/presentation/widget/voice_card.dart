@@ -32,7 +32,14 @@ class VoiceCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text(name, style: TextStyle(color: AppColors.dark,fontSize: 16,fontWeight: FontWeight.bold),  ),
+          Text(
+            name,
+            style: TextStyle(
+              color: AppColors.dark,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
