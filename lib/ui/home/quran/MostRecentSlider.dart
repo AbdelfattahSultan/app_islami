@@ -66,8 +66,9 @@ class _MostRecentSliderState extends State<MostRecentSlider> {
                             context,
                           ).textTheme.bodyLarge?.copyWith(color: Colors.black),
                         ),
-                        Text(visitedChapters[index].englishName,
-                        style: Theme.of(
+                        Text(
+                          visitedChapters[index].englishName,
+                          style: Theme.of(
                             context,
                           ).textTheme.bodyLarge?.copyWith(color: Colors.black),
                         ),
@@ -76,7 +77,7 @@ class _MostRecentSliderState extends State<MostRecentSlider> {
                           style: Theme.of(
                             context,
                           ).textTheme.bodyLarge?.copyWith(color: Colors.black),
-                          ),
+                        ),
                       ],
                     ),
                   ],

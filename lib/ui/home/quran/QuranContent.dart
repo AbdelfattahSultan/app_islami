@@ -16,7 +16,6 @@ class _QuranContentState extends State<QuranContent> {
   final List<Chapter> chapters = Chapter.chapters;
   List<Chapter> filterdChapters = [];
 
-
   _QuranContentState() {
     filterdChapters = chapters;
   }
@@ -33,25 +32,18 @@ class _QuranContentState extends State<QuranContent> {
             filterChapters(text.toLowerCase());
           },
           decoration: InputDecoration(
-              hintText: "Search for Chapter",
-              prefixIcon: ImageIcon(
-                Svg(
-                  AppImages.ic_quran,
-                ),
-                color: Theme
-                    .of(context)
-                    .colorScheme
-                    .primary,
+            hintText: "Search for Chapter",
+            prefixIcon: ImageIcon(
+              Svg(AppImages.ic_quran),
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(
+                color: Theme.of(context).primaryColor,
+                width: 1,
               ),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(
-                    color: Theme
-                        .of(context)
-                        .primaryColor,
-                    width: 1,
-                  )
-              )
+            ),
           ),
         ),
         MostRecentSlider(),
@@ -78,9 +70,8 @@ class _QuranContentState extends State<QuranContent> {
   void filterChapters(String text) {
     List<Chapter> filterList = [];
     for (int i = 0; i < chapters.length; i++) {
-      if (chapters[i].englishName.toLowerCase().contains(text)
-          || chapters[i].arabicName.toLowerCase().contains(text)
-      ) {
+      if (chapters[i].englishName.toLowerCase().contains(text) ||
+          chapters[i].arabicName.toLowerCase().contains(text)) {
         filterList.add(chapters[i]);
       }
     }
